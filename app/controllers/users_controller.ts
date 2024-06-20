@@ -12,13 +12,13 @@ export default class UsersController {
     return record
   }
 
-  async findById(id: number) {
+  async findById(id: any) {
     const db = new Database()
     const record = await db.findById(this.table, id)
     return record
   }
 
-  async update(username: string, password: string, id: number) {
+  async update(username: string, password: string, id: any) {
     const db = new Database()
     const record = await db.update(
       this.table,
@@ -33,7 +33,7 @@ export default class UsersController {
 
   async save(username: string, password: string, id: number) {
     const db = new Database()
-    const record = await db.save('threads', {
+    const record = await db.create('threads', {
       username,
       password,
     })

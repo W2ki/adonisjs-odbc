@@ -179,7 +179,7 @@ export default class Database {
    * @param {Object} columns - The columns to insert data into.
    * @returns {Promise<boolean>} - A promise that resolves to a boolean indicating the success of the operation.
    */
-  async save(table: string, columns: any) {
+  async create(table: string, columns: any) {
     let connection
     let query = `INSERT INTO ${table}`
     if (columns.length) {

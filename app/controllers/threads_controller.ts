@@ -11,31 +11,21 @@ export default class ThreadsController {
     return record
   }
 
-  async findById(id: number) {
+  async findById(id: any) {
     const db = new Database()
     const record = await db.findById(this.table, id)
     return record
   }
 
-  async update(username: string, password: string, id: number) {
+  async update(data: any, id: any) {
     const db = new Database()
-    const record = await db.update(
-      this.table,
-      {
-        username,
-        password,
-      },
-      `id = ${id}`
-    )
+    const record = await db.update(this.table, data, `id = ${id}`)
     return record
   }
 
-  async save(username: string, password: string, id: number) {
+  async save(data: any) {
     const db = new Database()
-    const record = await db.save('threads', {
-      username,
-      password,
-    })
+    const record = await db.create('threads', data)
     return record
   }
 }
